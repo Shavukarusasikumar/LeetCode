@@ -1,3 +1,9 @@
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
-        return arr.index(max(arr))
+        k=arr[0]
+        ind=0
+        for i in range(1,len(arr)):
+            if arr[i]>k:
+                k=arr[i]
+                ind=i
+        return ind
