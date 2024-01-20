@@ -8,15 +8,15 @@ public:
         }
         return true;
     }
-    void helper(string s,int ind,vector<string>&ds,vector<vector<string>>&ans){
-        if(s.size()==ind){
+    void helper(string s,int ind,vector<string>&ds,vector<vector<string>>&ans,int n){
+        if(n==ind){
             ans.push_back(ds);
             return;
         }
         for(int i=ind;i<s.size();i++){
             if(pal(s,ind,i)){
                 ds.push_back(s.substr(ind,i-ind+1));
-                helper(s,i+1,ds,ans);
+                helper(s,i+1,ds,ans,n);
                 ds.pop_back();
                 }
             }
@@ -25,7 +25,8 @@ public:
         int ind=0;
         vector<string> ds;
         vector<vector<string>> ans;
-        helper(s,ind,ds,ans);
+        int n=s.size();
+        helper(s,ind,ds,ans,n);
         return ans;
 
     }
