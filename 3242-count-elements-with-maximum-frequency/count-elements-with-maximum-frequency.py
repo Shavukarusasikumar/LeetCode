@@ -6,9 +6,7 @@ class Solution:
                 d[i]+=1
             else:
                 d[i]=1
-        k=max(d.values())
-        c=0
-        for i in d.values():
-            if i==k:
-                c+=1
+        l=[i for i in d.values()]
+        k=max(l)
+        c=l.count(k)
         return c*k
