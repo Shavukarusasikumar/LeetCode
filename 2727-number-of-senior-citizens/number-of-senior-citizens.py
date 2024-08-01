@@ -2,6 +2,6 @@ class Solution:
     def countSeniors(self, details: List[str]) -> int:
         c=0
         for i in details:
-            if i[-4]+i[-3]>'60':
+            if int(i[-4]+i[-3])>60:
                 c+=1
         return c
