@@ -1,17 +1,11 @@
 class Solution:
     def minimumPushes(self, word: str) -> int:
-        d = {}
-        for i in word:
-            if i in d:
-                d[i] += 1
-            else:
-                d[i] = 1
-        k = list(d.values())
-        k.sort(reverse=True)
+        d=Counter(word)
+        d=sorted(d.values(),reverse=True)
         c = 0
         bc = 0
         
-        for i in k:
+        for i in d:
             c += 1
             if c < 9:
                 bc += i
@@ -22,5 +16,5 @@ class Solution:
             else:
                 bc+=(4*i)
             
-        print(c,bc,len(word),len(k),k)
+        # print(c,bc,len(word),len(k),k)
         return bc
